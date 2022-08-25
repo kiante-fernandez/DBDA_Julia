@@ -6,7 +6,9 @@ book:
   title: "Doing Bayesian Data Analysis in Julia using Turing.jl"
   author: "Kianté Fernandez"
   date: "8/25/2022"
-  repo-url: "https://github.com/kiante-fernandez/DBDA_Julia"
+  site-url:  https://kiante-fernandez.github.io/DBDA_Julia/
+  repo-url: https://github.com/kiante-fernandez/DBDA_Julia
+  repo-branch: master
   chapters:
     - index.qmd
     - whats-in-this-book-read-this-first.qmd
