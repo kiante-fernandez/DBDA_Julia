@@ -271,7 +271,11 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-and-why" id="toc-what-and-why" class="nav-link active" data-scroll-target="#what-and-why">What and why</a></li>
+  <li><a href="#what-and-why" id="toc-what-and-why" class="nav-link active" data-scroll-target="#what-and-why">What and why</a>
+  <ul class="collapse">
+  <li><a href="#julia-setup" id="toc-julia-setup" class="nav-link" data-scroll-target="#julia-setup">Julia setup</a></li>
+  <li><a href="#version-0.0.1." id="toc-version-0.0.1." class="nav-link" data-scroll-target="#version-0.0.1.">Version 0.0.1.</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/kiante-fernandez/DBDA_Julia/edit/master/index.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -311,6 +315,13 @@ div.csl-indent {
 <p><img src="DBDA2Ecover.png" title="Doing Bayesian Data Analysis in Julia using Turing.jl" class="quarto-cover-image img-fluid"></p><h1 class="unnumbered">What and why</h1>
 <p>Kruschke began his text with “This book explains how to actually do Bayesian data analysis, by real people (like you), for realistic data (like yours).” In the same way, this project is designed to help those real people do Bayesian data analysis. My contribution is converting Kruschke’s JAGS and Stan code for use in another probalisitc progamiing framwork,<code>Turing.jl</code> which makes it easier to fit Bayesian regression models in Jilia (<span class="citation" data-cites="ge2018t">Ge, Xu, and Ghahramani (<a href="references.html#ref-ge2018t" role="doc-biblioref">2018</a>)</span>) using a number of samplers. I also prefer plotting and data wrangling with the packages from <code>Plots.jl</code>(<span class="citation" data-cites="bezanson2017julia">Bezanson et al. (<a href="references.html#ref-bezanson2017julia" role="doc-biblioref">2017</a>)</span>). So we’ll be using those methods, too.</p>
 <p>This ebook is not meant to stand alone. It’s a supplement to the second edition of <span class="citation" data-cites="kruschke2015doing">Kruschke (<a href="references.html#ref-kruschke2015doing" role="doc-biblioref">2015</a>)</span> Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan. Please give the source material some love.</p>
+<section id="julia-setup" class="level2">
+<h2 class="anchored" data-anchor-id="julia-setup">Julia setup</h2>
+<p>To follow along with this guide, you’ll need some software. Download and install Julia by following the instructions at https://julialang.org/downloads/. The <a href="https://docs.julialang.org/en/v1/manual/getting-started/">Getting Started page</a> has in depth instructions that can help.</p>
+</section>
+<section id="version-0.0.1." class="level2">
+<h2 class="anchored" data-anchor-id="version-0.0.1.">Version 0.0.1.</h2>
+<p>I am just starting this project. I to have a complete draft including material from all the chapters in Kruschke’s text by January 2023.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -324,6 +335,7 @@ Ge, Hong, Kai Xu, and Zoubin Ghahramani. 2018. <span>“Turing: A Language for F
 Kruschke, John. 2015. <em>Doing Bayesian Data Analysis (Second Edition)</em>. Boston: Academic Press.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->

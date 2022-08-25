@@ -1,5 +1,13 @@
 # What and why {.unnumbered}
 
-Kruschke began his text with “This book explains how to actually do Bayesian data analysis, by real people (like you), for realistic data (like yours).” In the same way, this project is designed to help those real people do Bayesian data analysis. My contribution is converting Kruschke’s JAGS and Stan code for use in another probalisitc progamiing framwork,`Turing.jl` which makes it easier to fit Bayesian regression models in Jilia (@ge2018t) using a number of samplers. I also prefer plotting and data wrangling with the packages from `Plots.jl`(@bezanson2017julia). So we’ll be using those methods, too. ![[](DBDA2Ecover.png)](https://sites.google.com/site/doingbayesiandataanalysis/){fig-align="right"}
+Kruschke began his text with “This book explains how to actually do Bayesian data analysis, by real people (like you), for realistic data (like yours).” In the same way, this project is designed to help those real people do Bayesian data analysis. My contribution is converting Kruschke’s JAGS and Stan code for use in another probalisitc progamiing framwork,`Turing.jl` which makes it easier to fit Bayesian regression models in Jilia (@ge2018t) using a number of samplers. I also prefer plotting and data wrangling with the packages from `Plots.jl`(@bezanson2017julia). So we’ll be using those methods, too.
 
 This ebook is not meant to stand alone. It’s a supplement to the second edition of @kruschke2015doing Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan. Please give the source material some love.
+
+## Julia setup
+
+To follow along with this guide, you’ll need some software. Download and install Julia by following the instructions at https://julialang.org/downloads/. The [Getting Started page](https://docs.julialang.org/en/v1/manual/getting-started/) has in depth instructions that can help.
+
+## Version 0.0.1.
+
+I am just starting this project. I to have a complete draft including material from all the chapters in Kruschke’s text by January 2023.
