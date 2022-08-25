@@ -1,1 +1,7 @@
 # What's in This Book (Read This First!)
+
+## Gimme feedback (be polite)
+I am not a statistician and have no formal computer science background. I am in the process of learning the Julia programming language (part of the goal of this project!). I am currently a Ph.D. student in psychology. I have been mostly an R and MATLAB user and started learning Bayesian statistics around 2019. My code will likely be "bad" as I get the hang of things. I have much to learn from the Julia community and thus encourage folk to reach out with suggestions on how to improve my code. If you'd like to learn more about me, you can find my website at https://www.kiantefernandez.com/.
+
+## Thank you! 
+A. Solomon Kurz really inspired this project. He has published multiple accessible introductory content on applied Bayesian analysis, complementing many of the books that taught me Bayesian statistics. I benefitted greatly from his free content. Go find him at: https://solomonkurz.netlify.com.

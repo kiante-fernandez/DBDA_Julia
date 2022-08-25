@@ -1,1 +1,4 @@
 # Introduction: Credibility, Models, and Parameters
+
+## Bayesian inference is reallocation of credibility across possibilities
+
