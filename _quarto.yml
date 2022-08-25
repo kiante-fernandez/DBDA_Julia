@@ -1,0 +1,45 @@
+project:
+  type: book
+
+book:
+  title: "Doing Bayesian Data Analysis in Julia using Turing.jl"
+  author: "Kianté Fernandez"
+  date: "8/25/2022"
+  chapters:
+    - index.qmd
+    - whats-in-this-book-read-this-first.qmd
+    - introduction-credibility-models-and-parameters.qmd
+    - the-julia-programming-language.qmd
+    - what-is-this-stuff-called-probability.qmd
+    - bayes-rule.qmd
+    - inferring-a-binomial-probability-via-exact-mathematical-analysis.qmd
+    - markov-chain-monte-carlo.qmd
+    - turing.qmd
+    - hierarchical-models.qmd
+    - model-comparison-and-hierarchical-modeling.qmd
+    - null-hypothesis-significance-testing.qmd
+    - bayesian-approaches-to-testing-a-point-null-hypothesis.qmd
+    - goals-power-and-sample-size.qmd
+    - overview-of-the-generalized-linear-model.qmd
+    - metric-predicted-variable-on-one-or-two-groups.qmd
+    - metric-predicted-variable-with-one-metric-predictor.qmd
+    - metric-predicted-variable-with-multiple-metric-predictors.qmd
+    - metric-predicted-variable-with-one-nominal-predictor.qmd
+    - metric-predicted-variable-with-multiple-nominal-predictors.qmd
+    - dichotomous-predicted-variable.qmd
+    - nominal-predicted-variable.qmd
+    - ordinal-predicted-variable.qmd
+    - count-predicted-variable.qmd
+    - tools-in-the-trunk.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+

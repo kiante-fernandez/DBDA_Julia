@@ -1,0 +1,5 @@
+# What and why {.unnumbered}
+
+Kruschke began his text with “This book explains how to actually do Bayesian data analysis, by real people (like you), for realistic data (like yours).” In the same way, this project is designed to help those real people do Bayesian data analysis. My contribution is converting Kruschke’s JAGS and Stan code for use in another probalisitc progamiing framwork,`Turing.jl` which makes it easier to fit Bayesian regression models in Jilia (@ge2018t) using a number of samplers. I also prefer plotting and data wrangling with the packages from `Plots.jl`(@bezanson2017julia). So we’ll be using those methods, too.
+
+This ebook is not meant to stand alone. It’s a supplement to the second edition of @kruschke2015doing Doing Bayesian data analysis: A tutorial with R, JAGS, and Stan. Please give the source material some love.
