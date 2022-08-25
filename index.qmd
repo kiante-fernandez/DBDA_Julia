@@ -6,7 +6,7 @@ This ebook is not meant to stand alone. It’s a supplement to the second editio
 
 ## Julia setup
 
-To follow along with this guide, you’ll need some software. Download and install Julia by following the instructions at https://julialang.org/downloads/. The [Getting Started page](https://docs.julialang.org/en/v1/manual/getting-started/) has in depth instructions that can help.
+To follow along with this guide, you’ll need some software. Download and install Julia by following the instructions at [https://julialang.org/downloads/.](https://julialang.org/downloads/) The [Getting Started page](https://docs.julialang.org/en/v1/manual/getting-started/) has in depth instructions that can help.
 
 ## Version 0.0.1.
 
