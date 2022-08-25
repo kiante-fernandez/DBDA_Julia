@@ -5,10 +5,13 @@ project:
 book:
   title: "Doing Bayesian Data Analysis in Julia using Turing.jl"
   author: "Kianté Fernandez"
+  cover-image: images/DBDA2Ecover.png
   date: "8/25/2022"
   site-url: https://kiante-fernandez.github.io/DBDA_Julia/
   repo-url: https://github.com/kiante-fernandez/DBDA_Julia
   repo-branch: master
+  repo-actions: [edit]
+  sharing: [twitter, facebook, linkedin]
   chapters:
     - index.qmd
     - whats-in-this-book-read-this-first.qmd
@@ -42,6 +45,8 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    cover-image: DBDA2Ecover.png
+    code-link: true
   pdf:
     documentclass: scrreprt
 
