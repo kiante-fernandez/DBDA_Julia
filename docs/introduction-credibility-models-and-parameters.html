@@ -363,11 +363,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">sort!</span>(d, [<span class="op">:</span>iteration])</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>d.Credibility <span class="op">=</span> d2.Credibility</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>┌ Warning: use values(kwargs) and keys(kwargs) instead of kwargs.data and kwargs.itr
-│   caller = expand_grid(; iters::Base.Pairs{Symbol, AbstractVector, Tuple{Symbol, Symbol, Symbol}, NamedTuple{(:iteration, :Possibilities, :stage), Tuple{UnitRange{Int64}, Vector{String}, Vector{String}}}}) at In[2]:5
-└ @ Main ./In[2]:5</code></pre>
-</div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>24-element Vector{Float64}:
  0.25
@@ -399,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Here we are defining a function that creates combinations and then I just bind that we the Credibility values we will use for plotting.</p>
 <p>We can take a look at the top few rows of the data with the <code>first()</code> function.</p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(d,<span class="fl">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(d,<span class="fl">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 
 <div class="data-frame"><p>5 rows × 4 columns</p><table class="data-frame table table-sm table-striped"><thead><tr><th></th><th>iteration</th><th>Possibilities</th><th>stage</th><th>Credibility</th></tr><tr><th></th><th title="Int64">Int64</th><th title="String">String</th><th title="String">String</th><th title="Float64">Float64</th></tr></thead><tbody><tr><th>1</th><td>1</td><td>a</td><td>a</td><td>0.25</td></tr><tr><th>2</th><td>1</td><td>b</td><td>a</td><td>0.25</td></tr><tr><th>3</th><td>1</td><td>c</td><td>a</td><td>0.25</td></tr><tr><th>4</th><td>1</td><td>d</td><td>a</td><td>0.25</td></tr><tr><th>5</th><td>1</td><td>a</td><td>b</td><td>0.0</td></tr></tbody></table></div>
@@ -407,27 +402,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Now lets plot our version of Figure 2.1:</p>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">VegaLite</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#bar(d.Possibilities, d.Credibility, layout = 6)</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>d <span class="op">|&gt;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="pp">@vlplot</span>(</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span>bar,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  color<span class="op">=:</span>green,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  column <span class="op">=</span> {<span class="st">"iteration"</span>,axis<span class="op">=</span>{title<span class="op">=</span><span class="st">""</span>}},</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  row <span class="op">=</span> {<span class="st">"stage:o"</span>, sort <span class="op">=</span> <span class="st">"-stage"</span>, axis<span class="op">=</span>{title<span class="op">=</span><span class="st">""</span>}},</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  x<span class="op">=</span>{<span class="st">"Possibilities:n"</span>, title<span class="op">=</span><span class="st">"Possibilities"</span>},</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  color<span class="op">=</span>{<span class="st">"Possibilities:n"</span>, scale<span class="op">=</span>{range<span class="op">=</span>[<span class="st">"#89b8f5"</span>]}, axis<span class="op">=</span>{title<span class="op">=</span><span class="st">""</span>}, legend <span class="op">=</span> <span class="st">""</span>},</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  y<span class="op">=</span>{<span class="st">"Credibility"</span>, axis<span class="op">=</span>{title<span class="op">=</span><span class="st">"Credibility"</span>, grid<span class="op">=</span><span class="cn">false</span>}},</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="fl">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">VegaLite</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#bar(d.Possibilities, d.Credibility, layout = 6)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>d <span class="op">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="pp">@vlplot</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span>bar,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  color<span class="op">=:</span>green,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  column <span class="op">=</span> {<span class="st">"iteration:o"</span>,axis<span class="op">=</span>{title<span class="op">=</span><span class="st">""</span>}},</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  row <span class="op">=</span> {<span class="st">"stage:o"</span>, sort <span class="op">=</span> <span class="st">"-stage"</span>, axis<span class="op">=</span>{title<span class="op">=</span><span class="st">""</span>}},</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  x<span class="op">=</span>{<span class="st">"Possibilities:n"</span>, title<span class="op">=</span><span class="st">"Possibilities"</span>},</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  color<span class="op">=</span>{<span class="st">"Possibilities:n"</span>, scale<span class="op">=</span>{range<span class="op">=</span>[<span class="st">"#89b8f5"</span>]}, axis<span class="op">=</span>{title<span class="op">=</span><span class="st">""</span>}, legend <span class="op">=</span> <span class="st">""</span>},</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  y<span class="op">=</span>{<span class="st">"Credibility"</span>, axis<span class="op">=</span>{title<span class="op">=</span><span class="st">"Credibility"</span>, grid<span class="op">=</span><span class="cn">false</span>}},</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  height <span class="op">=</span> <span class="fl">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <p><img src="introduction-credibility-models-and-parameters_files/figure-html/cell-4-output-1.svg" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>WARN column encoding should be discrete (ordinal / nominal / binned).
-WARN column encoding should be discrete (ordinal / nominal / binned).</code></pre>
 </div>
 </div>
 

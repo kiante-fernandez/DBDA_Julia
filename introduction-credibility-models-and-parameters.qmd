@@ -12,6 +12,9 @@ jupyter: julia-1.7
 To make Figure 2.1 we need data. We will create some synthetic data and store it in using `DataFrames.jl`
 
 ```{julia}
+#| warning: false
+#| output:false
+
 using DataFrames
 
 function expand_grid(; iters...)
@@ -46,6 +49,8 @@ Now lets plot our version of Figure 2.1:
 
 
 ```{julia}
+#| warning: false
+
 using Plots
 using VegaLite
 
@@ -55,7 +60,7 @@ d |>
 @vlplot(
   :bar,
   color=:green,
-  column = {"iteration",axis={title=""}},
+  column = {"iteration:o",axis={title=""}},
   row = {"stage:o", sort = "-stage", axis={title=""}},
   x={"Possibilities:n", title="Possibilities"},
   color={"Possibilities:n", scale={range=["#89b8f5"]}, axis={title=""}, legend = ""},
