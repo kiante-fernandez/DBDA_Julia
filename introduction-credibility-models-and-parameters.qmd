@@ -1,4 +1,25 @@
+---
+format:
+  html:
+    code-fold: true
+jupyter: julia-1.7
+---
+
 # Introduction: Credibility, Models, and Parameters
 
 ## Bayesian inference is reallocation of credibility across possibilities
 
+To make Figure 2.1 we need data. To create some synthetic 
+```{julia}
+using Plots
+using DataFrames
+
+
+plot(sin, 
+     x->sin(2x), 
+     0, 
+     2π, 
+     leg=false, 
+     fill=(0,:lavender))
+
+```
