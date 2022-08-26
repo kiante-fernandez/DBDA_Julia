@@ -47,9 +47,9 @@ format:
     theme: cosmo
     cover-image: DBDA2Ecover.png
     code-link: true
-  pdf:
-    documentclass: scrreprt
+  # pdf:
+  #   documentclass: scrreprt
 
-# execute:
-#   cache: true
+execute:
+  cache: true
 
