@@ -9,17 +9,59 @@ jupyter: julia-1.7
 
 ## Bayesian inference is reallocation of credibility across possibilities
 
-To make Figure 2.1 we need data. To create some synthetic 
+To make Figure 2.1 we need data. We will create some synthetic data and store it in using `DataFrames.jl`
+
 ```{julia}
-using Plots
 using DataFrames
 
+function expand_grid(; iters...)
+    var_names = collect(keys(iters))
+    var_itr = [1:length(x) for x in iters.data]
+    var_ix = vcat([collect(x)' for x in Iterators.product(var_itr...)]...)
+    out = DataFrame()
+    for i = 1:length(var_names)
+        out[:,var_names[i]] = collect(iters[i])[var_ix[:,i]]
+    end
+    return out
+end
 
-plot(sin, 
-     x->sin(2x), 
-     0, 
-     2π, 
-     leg=false, 
-     fill=(0,:lavender))
+d = expand_grid(iteration=1:3, Possibilities=["a", "b","c", "d"], stage = ["a", "b"])
+
+d2 =DataFrame(Credibility =[fill(.25,4); 0; fill(1/3,3); 0; fill(1/3,3);0;.5;0;0.5;0;.5;0;0.5;fill(0,3);1])
+
+sort!(d, [:iteration])
+d.Credibility = d2.Credibility
 
 ```
+
+Here we are defining a function that creates combinations and then I just bind that we the Credibility values we will use for plotting. 
+
+We can take a look at the top few rows of the data with the `first()` function.
+
+```{julia}
+first(d,5)
+```
+
+Now lets plot our version of Figure 2.1:
+
+
+```{julia}
+using Plots
+using VegaLite
+
+#bar(d.Possibilities, d.Credibility, layout = 6)
+
+d |>
+@vlplot(
+  :bar,
+  color=:green,
+  column = {"iteration",axis={title=""}},
+  row = {"stage:o", sort = "-stage", axis={title=""}},
+  x={"Possibilities:n", title="Possibilities"},
+  color={"Possibilities:n", scale={range=["#89b8f5"]}, axis={title=""}, legend = ""},
+  y={"Credibility", axis={title="Credibility", grid=false}},
+  height = 250)
+
+```
+
+

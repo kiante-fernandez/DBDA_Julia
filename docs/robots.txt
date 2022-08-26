@@ -1,1 +1,0 @@
-Sitemap: https://kiante-fernandez.github.io/DBDA_Julia/sitemap.xml
