@@ -28,7 +28,7 @@ function expand_grid(; iters...)
     return out
 end
 
-d = expand_grid(iteration=1:3, Possibilities=["a", "b","c", "d"], stage = ["a", "b"])
+d = expand_grid(iteration=1:3, Possibilities=["A", "B","C", "D"], stage = ["Prior", "Posterior"])
 
 d2 =DataFrame(Credibility =[fill(.25,4); 0; fill(1/3,3); 0; fill(1/3,3);0;.5;0;0.5;0;.5;0;0.5;fill(0,3);1])
 
@@ -45,28 +45,52 @@ We can take a look at the top few rows of the data with the `first()` function.
 first(d,5)
 ```
 
-Now lets plot our version of Figure 2.1:
+Now lets plot our version of Figure 2.1. To do so, we will use the `Gadfly.jl` package. This is my preferred plotting package because it has similar syntax to ggplot2 package in R.
 
 
 ```{julia}
 #| warning: false
+using Gadfly
+using DataFramesMeta
 
-using Plots
-using VegaLite
+#Specify the plot size
+set_default_plot_size(16cm, 18cm)
 
-#bar(d.Possibilities, d.Credibility, layout = 6)
+df_Prior = @where(d, :stage .== "Prior")
+df_Posterior = @where(d, :stage .== "Posterior")
 
-d |>
-@vlplot(
-  :bar,
-  color=:green,
-  column = {"iteration:o",axis={title=""}},
-  row = {"stage:o", sort = "-stage", axis={title=""}},
-  x={"Possibilities:n", title="Possibilities"},
-  color={"Possibilities:n", scale={range=["#89b8f5"]}, axis={title=""}, legend = ""},
-  y={"Credibility", axis={title="Credibility", grid=false}},
-  height = 250)
-
+fig1a = plot(df_Prior,
+    xgroup = :iteration,
+    x = :Possibilities,
+    y = :Credibility,
+    Geom.subplot_grid(Geom.bar(orientation = :vertical)),
+    Guide.xlabel("Possibilities"),
+    Guide.ylabel("Credibility"),
+    Guide.title("Prior"),
+    Scale.y_continuous(format = :plain),
+    Theme(
+        background_color = "white",
+        bar_spacing = 1mm,
+        grid_color = "white"
+    )
+)
+fig1b = plot(df_Posterior,
+    xgroup = :iteration,
+    x = :Possibilities,
+    y = :Credibility,
+    Geom.subplot_grid(Geom.bar(orientation = :vertical)),
+    Guide.xlabel("Possibilities"),
+    Guide.ylabel("Credibility"),
+    Guide.title("Posterior"),
+    Scale.y_continuous(format = :plain),
+    Theme(
+        background_color = "white",
+        bar_spacing = 1mm,
+        grid_color = "white"
+    )
+)
+#create a subplot
+vstack(fig1a,fig1b)
 ```
 
 
