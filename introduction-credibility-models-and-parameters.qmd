@@ -50,6 +50,7 @@ Now lets plot our version of Figure 2.1. To do so, we will use the `Gadfly.jl` p
 
 ```{julia}
 #| warning: false
+
 using Gadfly
 using DataFramesMeta
 
