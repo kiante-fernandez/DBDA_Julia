@@ -110,6 +110,49 @@ using Compose #need to add Pkg still.
 
 ### Data are noisy and inferences are probabilistic.
 
+```{julia}
+using Gadfly
+using Distributions
+
+set_default_plot_size(16cm, 18cm)
+
+d = Normal()
+σ = 2
+x1 = rand(Normal(1, σ), 10^5)
+x2 = rand(Normal(4, σ), 10^5)
+x3 = rand(Normal(7, σ), 10^5)
+x4 = rand(Normal(10, σ), 10^5)
+using DataFrames
+x5 = DataFrame(Possibilities = 1, Credibility = 0.2)
+x6 = DataFrame(Possibilities = 4, Credibility = 0.2)
+x7 = DataFrame(Possibilities = 7, Credibility = 0.2)
+x8 = DataFrame(Possibilities = 10, Credibility = 0.2)
+
+plot(layer(x=x1, Geom.density, color=["auto"]),
+    layer(x=x2, Geom.density, color=["auto"]),
+    layer(x=x3, Geom.density, color=["auto"]),
+    layer(x=x4, Geom.density, color=["auto"]),
+    Guide.xlabel("Possibilities"),
+    Guide.ylabel("Credibility"),
+    Guide.title("Prior"),
+    Theme(
+        background_color = "white",
+        grid_color = "white"
+    ),
+    layer(x5, x = :Possibilities, y = :Credibility, Geom.bar(orientation = :vertical)),
+    layer(x6, x = :Possibilities, y = :Credibility, Geom.bar(orientation = :vertical)),
+    layer(x7, x = :Possibilities, y = :Credibility, Geom.bar(orientation = :vertical)),
+    layer(x8, x = :Possibilities, y = :Credibility, Geom.bar(orientation = :vertical))   )
+    #found the correct way to do this!
+    # plot(layer(x->pdf(d, x), -4, 4, color=[colorant"black"]),
+    #  Theme(
+    #     background_color = "white",
+    #     grid_color = "white"
+    # ))
+
+
+```
+
 ## Possibilities are parameter values in descriptive models
 
 ## The steps of Bayesian data analysis
