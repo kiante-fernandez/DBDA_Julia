@@ -169,3 +169,81 @@ plot(layer(x=x1, Geom.density, color=["auto"]),
 
 I will showcase the entire workflow here. In later chapters we’ll cover this workflow in much more detail. 
 
+First we need to generate the data and fit a model to those data. In `HtWtDataDenerator.R` script, Kruschke provided the code for a function that will simulate height/weight data. Lets rewrite that function in Julia:
+
+```{julia}
+using Distributions, Random, DataFrames, StatsBase
+
+function HtWtDataGenerator(nSubj, rndsd = nothing, maleProb = 0.50) 
+    # Random height, weight generator for males and females. Uses parameters from
+    # Brainard, J. & Burmaster, D. E. (1992). Bivariate distributions for height and
+    # weight of men and women in the United States. Risk Analysis, 12(2), 267-275.
+    # Kruschke, J. K. (2011). Doing Bayesian data analysis:
+    # A Tutorial with R and BUGS. Academic Press / Elsevier.
+    # Kruschke, J. K. (2014). Doing Bayesian data analysis, 2nd Edition:
+    # A Tutorial with R, JAGS and Stan. Academic Press / Elsevier.
+    
+    # Specify parameters of multivariate normal (MVN) distributions.
+  
+    # Men:
+    HtMmu   = 69.18
+    HtMsd   = 2.87
+    lnWtMmu = 5.14
+    lnWtMsd = 0.17
+    Mrho    = 0.42
+    Mmean   = [HtMmu, lnWtMmu]
+    Msigma  = [HtMsd^2 Mrho * HtMsd * lnWtMsd; Mrho * HtMsd * lnWtMsd lnWtMsd^2]
+    # Women cluster 1:
+    HtFmu1   = 63.11
+    HtFsd1   = 2.76
+    lnWtFmu1 = 5.06
+    lnWtFsd1 = 0.24
+    Frho1    = 0.41
+    prop1    = 0.46
+    Fmean1   = [HtFmu1, lnWtFmu1]
+    Fsigma1  = [HtFsd1^2 Frho1 * HtFsd1 * lnWtFsd1; Frho1 * HtFsd1 * lnWtFsd1  lnWtFsd1^2]
+    # Women cluster 2:
+    HtFmu2   = 64.36
+    HtFsd2   = 2.49
+    lnWtFmu2 = 4.86
+    lnWtFsd2 = 0.14
+    Frho2    = 0.44
+    prop2    = 1 - prop1
+    Fmean2   = [HtFmu2, lnWtFmu2]
+    Fsigma2  = [HtFsd2^2  Frho2 * HtFsd2 * lnWtFsd2; Frho2 * HtFsd2 * lnWtFsd2  lnWtFsd2^2]
+
+    # Randomly generate data values from those MVN distributions.
+    if rndsd !== nothing 
+        Random.seed!(rndsd) 
+    end
+    datamatrix =  DataFrame(zeros(nSubj, 3), ["male", "height", "weight"])
+    # arbitrary coding values
+    maleval = 1
+    femaleval = 0
+
+    for i in 1:nSubj
+        # Flip coin to decide sex
+        sex = wsample([maleval, femaleval], [maleProb, 1 - maleProb], 1)
+
+        if sex[1] == maleval
+            datum = rand(MvNormal(Mmean, Msigma))
+        elseif sex[1] == femaleval
+            Fclust = wsample([1, 2], [prop1, prop2], 1)
+
+            if Fclust[1] == 1
+            datum = rand(MvNormal(Fmean1, Fsigma1))
+            else
+            datum = rand(MvNormal(Fmean2, Fsigma2))
+            end
+        end
+        datum[2] = exp(datum[2])
+        datamatrix[i, :] = [sex; round.(datum, digits = 1)]
+    end
+
+    return datamatrix #why does it return zero rows for any value below the last i?
+
+end
+
+HtWtDataGenerator(10) #why does it return zero rows for any value below the last i?
+
+```
