@@ -2,106 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/index.html</loc>
-    <lastmod>2022-09-11T02:56:12.624Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.076Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/whats-in-this-book-read-this-first.html</loc>
-    <lastmod>2022-09-11T02:56:12.625Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.077Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/introduction-credibility-models-and-parameters.html</loc>
-    <lastmod>2022-09-11T02:56:12.690Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.134Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/the-julia-programming-language.html</loc>
-    <lastmod>2022-09-11T02:56:12.692Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.140Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/what-is-this-stuff-called-probability.html</loc>
-    <lastmod>2022-09-11T02:56:12.693Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.140Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/bayes-rule.html</loc>
-    <lastmod>2022-09-11T02:56:12.694Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.141Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/inferring-a-binomial-probability-via-exact-mathematical-analysis.html</loc>
-    <lastmod>2022-09-11T02:56:12.694Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.142Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/markov-chain-monte-carlo.html</loc>
-    <lastmod>2022-09-11T02:56:12.696Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.142Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/turing.html</loc>
-    <lastmod>2022-09-11T02:56:12.696Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.143Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/hierarchical-models.html</loc>
-    <lastmod>2022-09-11T02:56:12.697Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.144Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/model-comparison-and-hierarchical-modeling.html</loc>
-    <lastmod>2022-09-11T02:56:12.698Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.144Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/null-hypothesis-significance-testing.html</loc>
-    <lastmod>2022-09-11T02:56:12.698Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.145Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/bayesian-approaches-to-testing-a-point-null-hypothesis.html</loc>
-    <lastmod>2022-09-11T02:56:12.699Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.146Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/goals-power-and-sample-size.html</loc>
-    <lastmod>2022-09-11T02:56:12.699Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.147Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/overview-of-the-generalized-linear-model.html</loc>
-    <lastmod>2022-09-11T02:56:12.700Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.148Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/metric-predicted-variable-on-one-or-two-groups.html</loc>
-    <lastmod>2022-09-11T02:56:12.701Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.149Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/metric-predicted-variable-with-one-metric-predictor.html</loc>
-    <lastmod>2022-09-11T02:56:12.701Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.150Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/metric-predicted-variable-with-multiple-metric-predictors.html</loc>
-    <lastmod>2022-09-11T02:56:12.702Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.151Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/metric-predicted-variable-with-one-nominal-predictor.html</loc>
-    <lastmod>2022-09-11T02:56:12.703Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.151Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/metric-predicted-variable-with-multiple-nominal-predictors.html</loc>
-    <lastmod>2022-09-11T02:56:12.703Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.152Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/dichotomous-predicted-variable.html</loc>
-    <lastmod>2022-09-11T02:56:12.704Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.152Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/nominal-predicted-variable.html</loc>
-    <lastmod>2022-09-11T02:56:12.705Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.153Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/ordinal-predicted-variable.html</loc>
-    <lastmod>2022-09-11T02:56:12.706Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.154Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/count-predicted-variable.html</loc>
-    <lastmod>2022-09-11T02:56:12.707Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.154Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/tools-in-the-trunk.html</loc>
-    <lastmod>2022-09-11T02:56:12.708Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.155Z</lastmod>
   </url>
   <url>
     <loc>https://kiante-fernandez.github.io/DBDA_Julia/references.html</loc>
-    <lastmod>2022-09-11T02:56:12.709Z</lastmod>
+    <lastmod>2022-09-11T04:45:35.156Z</lastmod>
   </url>
 </urlset>

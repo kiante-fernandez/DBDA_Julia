@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -247,7 +310,22 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#get-the-software" id="toc-get-the-software" class="nav-link active" data-scroll-target="#get-the-software"> <span class="header-section-number">3.1</span> Get the software</a></li>
+  <li><a href="#a-look-at-vs-code" id="toc-a-look-at-vs-code" class="nav-link" data-scroll-target="#a-look-at-vs-code"> <span class="header-section-number">3.2</span> A look at VS Code</a></li>
+  <li><a href="#a-simple-example-of-julia-in-action" id="toc-a-simple-example-of-julia-in-action" class="nav-link" data-scroll-target="#a-simple-example-of-julia-in-action"> <span class="header-section-number">3.3</span> A simple example of Julia in action</a></li>
+  <li><a href="#basic-commands-and-operators-in-julia" id="toc-basic-commands-and-operators-in-julia" class="nav-link" data-scroll-target="#basic-commands-and-operators-in-julia"> <span class="header-section-number">3.4</span> Basic commands and operators in Julia</a></li>
+  <li><a href="#variable-types" id="toc-variable-types" class="nav-link" data-scroll-target="#variable-types"> <span class="header-section-number">3.5</span> Variable types</a></li>
+  <li><a href="#loading-and-saving-data" id="toc-loading-and-saving-data" class="nav-link" data-scroll-target="#loading-and-saving-data"> <span class="header-section-number">3.6</span> Loading and saving data</a></li>
+  <li><a href="#some-utility-functions" id="toc-some-utility-functions" class="nav-link" data-scroll-target="#some-utility-functions"> <span class="header-section-number">3.7</span> Some utility functions</a></li>
+  <li><a href="#programming-in-julia" id="toc-programming-in-julia" class="nav-link" data-scroll-target="#programming-in-julia"> <span class="header-section-number">3.8</span> Programming in Julia</a></li>
+  <li><a href="#graphical-plots-opening-and-saving" id="toc-graphical-plots-opening-and-saving" class="nav-link" data-scroll-target="#graphical-plots-opening-and-saving"> <span class="header-section-number">3.9</span> Graphical plots: Opening and saving</a></li>
+  <li><a href="#conclusion-turing.jl-related-needs" id="toc-conclusion-turing.jl-related-needs" class="nav-link" data-scroll-target="#conclusion-turing.jl-related-needs"> <span class="header-section-number">3.10</span> <del>Conclusion</del> turing.jl-related needs</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/kiante-fernandez/DBDA_Julia/edit/master/the-julia-programming-language.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -268,8 +346,74 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<p>I will do my best to mirror what’s in the text. I will touch on many of the same higher-level concepts as the chapter on R does. However, Julia does have some differences. As a result, I sometimes deviate from the text to highlight some of the language’s unique features.</p>
+<section id="get-the-software" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="get-the-software"><span class="header-section-number">3.1</span> Get the software</h2>
+<p>Go install Julia on your computer. Go to <a href="https://julialang.org/">https://julialang.org/</a> and follow the instructions. If you are curious about the history of Julia, go check out <a href="https://julialang.org/blog/2012/02/why-we-created-julia/">https://julialang.org/blog/2012/02/why-we-created-julia/</a>, a blog post by the language developers. I also highly recommend <a href="https://youtu.be/RCQK4SuCufo?t=523">this</a> as well as <a href="https://youtu.be/JYs_94znYy0">this Youtube video</a> for a brief explanation of the motivation behind the Julia language. I make also make use of a variety of add-on packages in this project. You can install them all by executing this code block.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dependencies <span class="op">=</span> [</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Turing"</span>,           <span class="co">#https://turing.ml/stable/</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AbstractMCMC"</span>,     <span class="co">#https://github.com/TuringLang/AbstractMCMC.jl</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MCMCChains"</span>,       <span class="co">#https://github.com/TuringLang/MCMCChains.jl</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DataFrames"</span>,       <span class="co">#https://dataframes.juliadata.org/stable/</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DataFramesMeta"</span>,   <span class="co">#https://juliadata.github.io/DataFramesMeta.jl/stable/</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Distributions"</span>,    <span class="co">#https://juliastats.org/Distributions.jl/stable/</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Gadfly"</span>,           <span class="co">#http://gadflyjl.org/stable/</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"StatsPlots"</span>,       <span class="co">#https://github.com/JuliaPlots/StatsPlots.jl</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Optim"</span>,            <span class="co">#https://julianlsolvers.github.io/Optim.jl/stable/</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"IJulia"</span>,           <span class="co">#https://github.com/JuliaLang/IJulia.jl</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Revise"</span>            <span class="co">#https://timholy.github.io/Revise.jl/stable/#Introduction-to-Revise-1</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">add</span>(dependencies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sometimes installing dependencies right into your immediate environment can cause a headache later. Instead, consider creating a project for your code from this book. A project is Julia’s way of tracking the versions of packages used and is the best practice for managing the range of competing dependencies from the spread of packages. For more information, check out the documentation at <a href="https://pkgdocs.julialang.org/v1/environments/">https://pkgdocs.julialang.org/v1/environments/</a>.</p>
+</div>
+</div>
+</section>
+<section id="a-look-at-vs-code" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="a-look-at-vs-code"><span class="header-section-number">3.2</span> A look at VS Code</h2>
+<p>Visual Studio Code, also commonly referred to as VS Code, is an Integrated development environment (IDE) developed by Microsoft. VS Code has consistently been ranked one of the most popular IDEs. Due to its popularity, the support from the user base has made VS Code an excellent choice for developing in Julia. To get all the features for running Julia within VS Code, check out the documentation: <a href="https://code.visualstudio.com/docs/languages/julia">https://code.visualstudio.com/docs/languages/julia</a>. You are, of course, free to use any IDE you see fit.</p>
+</section>
+<section id="a-simple-example-of-julia-in-action" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="a-simple-example-of-julia-in-action"><span class="header-section-number">3.3</span> A simple example of Julia in action</h2>
+</section>
+<section id="basic-commands-and-operators-in-julia" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="basic-commands-and-operators-in-julia"><span class="header-section-number">3.4</span> Basic commands and operators in Julia</h2>
+</section>
+<section id="variable-types" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="variable-types"><span class="header-section-number">3.5</span> Variable types</h2>
+</section>
+<section id="loading-and-saving-data" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="loading-and-saving-data"><span class="header-section-number">3.6</span> Loading and saving data</h2>
+</section>
+<section id="some-utility-functions" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="some-utility-functions"><span class="header-section-number">3.7</span> Some utility functions</h2>
+</section>
+<section id="programming-in-julia" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="programming-in-julia"><span class="header-section-number">3.8</span> Programming in Julia</h2>
+</section>
+<section id="graphical-plots-opening-and-saving" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="graphical-plots-opening-and-saving"><span class="header-section-number">3.9</span> Graphical plots: Opening and saving</h2>
+</section>
+<section id="conclusion-turing.jl-related-needs" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="conclusion-turing.jl-related-needs"><span class="header-section-number">3.10</span> <del>Conclusion</del> turing.jl-related needs</h2>
+<p>Given its central role in this ebook, we need to mention some resources for <code>turing.jl</code>. The main website for turing is the GitHub repository at <a href="https://github.com/TuringLang/Turing.jl">https://github.com/TuringLang/Turing.jl</a>. The official website, <a href="https://turing.ml/stable/">https://turing.ml/stable/</a> is also handy in that it contains a set of tutorials, vignettes, and other documents to help you get started (though I will note that at the time of writing this, the documentation does not keep speed with the most stable release of the package). You can also <a href="https://join.slack.com/t/julialang/shared_invite/zt-1fv4bedoy-pbL3tzyiFBOD6Ttjr5NUPA">join the Julia slack community</a> and join the turing channel, which I found tremendously helpful while writing this book. Finally, you can keep an eye on the discussions in the turing section of the Julialang forum, <a href="https://discourse.julialang.org/tag/turing">https://discourse.julialang.org/tag/turing</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

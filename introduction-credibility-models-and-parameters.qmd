@@ -466,6 +466,7 @@ Gadfly.plot(
 ```
 
 > “We have seen the five steps of Bayesian analysis in a fairly realistic example. This book explains how to do this sort of analysis for many different applications and types of descriptive models” (p. 30). 
+
 That's it! We can now start digging into the details that make up each of the steps outlined in this introductory chapter. Learning Bayesian inference is a rewarding experience. I wish you the best of luck on this exciting journey! 
 
 ## Session info

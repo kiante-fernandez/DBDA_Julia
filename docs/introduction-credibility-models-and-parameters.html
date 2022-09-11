@@ -350,7 +350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="bayesian-inference-is-reallocation-of-credibility-across-possibilities" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="bayesian-inference-is-reallocation-of-credibility-across-possibilities"><span class="header-section-number">2.1</span> Bayesian inference is reallocation of credibility across possibilities</h2>
 <p>To make Figure 2.1 we need data. We will create some synthetic data and store it in using <code>DataFrames.jl</code></p>
-<div class="cell" data-execution_count="1">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">expand_grid</span>(; iters<span class="op">...</span>)</span>
@@ -373,7 +373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Here we are defining a function that creates combinations and then I just bind that we the Credibility values we will use for plotting.</p>
 <p>We can take a look at the top few rows of the data with the <code>first()</code> function.</p>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(d,<span class="fl">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 
@@ -381,7 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Now lets plot our version of Figure 2.1. To do so, we will use the <code>Gadfly.jl</code> package. This is my preferred plotting package because it has similar syntax to ggplot2 package in R.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 
 <!--?xml version="1.0" encoding="UTF-8"?-->
@@ -5316,7 +5316,7 @@ fig.select("#img-a08cd55d-954")
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="data-are-noisy-and-inferences-are-probabilistic."><span class="header-section-number">2.1.1</span> Data are noisy and inferences are probabilistic.</h3>
 <p>The next plot will involve getting creating some Gaussian distributions. To do so, we will use the <code>Distributions.jl</code> package. Distribution allows create and extract information from a wide range of probability distributions. We will use this package a lot in subsequent chapter to draw samples to facilitate Bayesian inference. Note that I am ignoring the scaling issue apparent from the four distributions densities not being equal to one. Also to create the illusion of a discrete x axis, I will just show only the 4 values.</p>
 <p>TODO: rescale the curves such that the density on the y axis for each curve sums to one.</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Gadfly</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Distributions</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
@@ -7342,7 +7342,7 @@ fig.select("#img-6478d465-148")
 </div>
 </div>
 <p>Now we can use the same method to create the bottom panel of Figure 2.3. Here I will just hide the y axis. What is important to note is just how the assignment of credibility changes based on our 3 observations (shown in red).</p>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ticks <span class="op">=</span> [<span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>] <span class="co">#specify the tick marks</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#create some data for the bars</span></span>
@@ -8633,7 +8633,7 @@ fig.select("#img-a5b84c62-64")
 <section id="possibilities-are-parameter-values-in-descriptive-models" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="possibilities-are-parameter-values-in-descriptive-models"><span class="header-section-number">2.2</span> Possibilities are parameter values in descriptive models</h2>
 <p>In the last section, we used the <code>Normal()</code> function to make curves following Gaussian distribution. Now we will showcase the power and flexibility of the <code>Distribution.jl</code> package by assigning a distribution to a name and drawing random samples from that object. By doing so we can simulate data from a the specified normal distribution.</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Random</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># set the seed to make the simulation reproducible</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">2022</span>) </span>
@@ -12365,7 +12365,7 @@ fig.select("#img-a86bbb07-443")
 
 </div>
 </div>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Figure 2.4.b.</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">layer</span>(simulated_data, x<span class="op">=:</span>x, Geom.<span class="fu">histogram</span>(density<span class="op">=</span><span class="cn">true</span>)),</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">layer</span>(<span class="fu">x-&gt;pdf</span>(<span class="fu">Normal</span>(<span class="fl">8</span>, <span class="fl">6</span>), x), <span class="op">-</span><span class="fl">8</span>, <span class="fl">27</span>, color<span class="op">=</span>[colorant<span class="st">"black"</span>],order<span class="op">=</span><span class="fl">1</span>),</span>
@@ -16104,7 +16104,7 @@ fig.select("#img-2f3832d9-443")
 </blockquote>
 <p>I will showcase the entire workflow here. In later chapters we’ll cover this workflow in much more detail.</p>
 <p>First we need to generate the data and fit a model to those data. In <code>HtWtDataDenerator.R</code> script, Kruschke provided the code for a function that will simulate height/weight data. Lets rewrite that function in Julia:</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Distributions</span>, <span class="bu">Random</span>, <span class="bu">DataFrames</span>, <span class="bu">StatsBase</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">HtWtDataGenerator</span>(nSubj, rndsd <span class="op">=</span> <span class="cn">nothing</span>, maleProb <span class="op">=</span> <span class="fl">0.50</span>) </span>
@@ -16181,7 +16181,7 @@ fig.select("#img-2f3832d9-443")
 </div>
 </div>
 <p>The <code>HtWtDataGenerator()</code> function has two arguments. The nSubj argument determines how many values to generate, and maleProb determines how probable we want those values to be from men.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display" data-execution_count="10">
 
 <div class="data-frame"><p>5 rows × 3 columns</p><table class="data-frame table table-sm table-striped"><thead><tr><th></th><th>male</th><th>height</th><th>weight</th></tr><tr><th></th><th title="Float64">Float64</th><th title="Float64">Float64</th><th title="Float64">Float64</th></tr></thead><tbody><tr><th>1</th><td>1.0</td><td>66.0</td><td>141.2</td></tr><tr><th>2</th><td>0.0</td><td>60.4</td><td>104.3</td></tr><tr><th>3</th><td>0.0</td><td>62.7</td><td>139.4</td></tr><tr><th>4</th><td>0.0</td><td>61.7</td><td>109.9</td></tr><tr><th>5</th><td>1.0</td><td>64.4</td><td>162.5</td></tr></tbody></table></div>
@@ -16194,7 +16194,7 @@ fig.select("#img-2f3832d9-443")
 <li><a href="https://storopoli.github.io/Bayesian-Julia/">https://storopoli.github.io/Bayesian-Julia/</a></li>
 </ul>
 <p>Following <a href="https://bookdown.org/content/3686/introduction-credibility-models-and-parameters.html#the-steps-of-bayesian-data-analysis">Solomon Kurz’s example</a>, we’ll use weakly-regularizing priors for the intercept and slope and a half Cauchy with a fairly large scale parameter for <span class="math inline">\(\sigma\)</span></p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Turing</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Optim</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">MCMCChains</span>, <span class="bu">Plots</span>, <span class="bu">StatsPlots</span>, <span class="bu">Gadfly</span></span>
@@ -16228,7 +16228,7 @@ fig.select("#img-2f3832d9-443")
 <span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>chain_lin_reg <span class="op">=</span> <span class="fu">sample</span>(model, <span class="fu">NUTS</span>(<span class="fl">500</span>, <span class="fl">0.65</span>),<span class="fu">MCMCDistributed</span>(),<span class="fl">2_000</span>, <span class="fl">4</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you wanted a model summary, you could execute <code>display(chain_lin_reg)</code>. For more detail, see Chapter 8. Here’s Figure 2.5.a.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#store in a Dataframe</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plot_df <span class="op">=</span> <span class="fu">DataFrame</span>(<span class="fu">sample</span>(chain_lin_reg[<span class="op">:</span>,<span class="op">:</span>,<span class="op">:</span>], <span class="fl">57</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plot_df.x <span class="op">=</span> x</span>
@@ -20538,7 +20538,7 @@ fig.select("#img-19e95a64-620")
 </div>
 </div>
 <p>For Figure 2.5.b., we’ll mark off the mode and 95% highest density interval (HDI).</p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(chain_lin_reg)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt_HDI <span class="op">=</span> <span class="fu">DataFrame</span>(<span class="fu">quantile</span>(<span class="fu">group</span>(chain_lin_reg, <span class="op">:</span>β)))</span>
@@ -22762,7 +22762,7 @@ fig.select("#img-d468830a-200")
 </div>
 </div>
 <p>To make Figure 2.6, we use the <code>predict()</code> function. First we create a model object with missing values for our dependent variable, then we will predict those values using our posterior samples.</p>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extract the posterior draws</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model_pred <span class="op">=</span> <span class="fu">linear_regression</span>(x,<span class="fu">Vector</span><span class="dt">{Missing}</span>(<span class="cn">missing</span>, <span class="fu">length</span>(y)))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>posterior_check <span class="op">=</span> <span class="fu">predict</span>(model_pred, chain_lin_reg)</span>
@@ -27714,7 +27714,7 @@ fig.select("#img-660bcdba-853")
 </div>
 </div>
 <p>The posterior predictions might be easier to depict with a ribbon and line, instead. Luckily <code>Gadfly.jl</code> makes it really easy to change.</p>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Gadfly.<span class="fu">plot</span>(</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">layer</span>(plot_df, x<span class="op">=:</span>x, y<span class="op">=:</span>y, Geom.point,color <span class="op">=</span> [colorant<span class="st">"black"</span>]),</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">layer</span>(plot_df, x<span class="op">=:</span>x, y<span class="op">=:</span>predictions,ymin<span class="op">=</span><span class="st">"2.5%"</span>, ymax<span class="op">=</span><span class="st">"97.5%"</span>,Geom.line,Geom.ribbon, color <span class="op">=</span> [colorant<span class="st">"red"</span>]),Guide.<span class="fu">xlabel</span>(<span class="st">"Height in inches"</span>),</span>
@@ -31741,12 +31741,13 @@ fig.select("#img-59e9d010-510")
 </div>
 </div>
 <blockquote class="blockquote">
-<p>“We have seen the five steps of Bayesian analysis in a fairly realistic example. This book explains how to do this sort of analysis for many different applications and types of descriptive models” (p.&nbsp;30). That’s it! We can now start digging into the details that make up each of the steps outlined in this introductory chapter. Learning Bayesian inference is a rewarding experience. I wish you the best of luck on this exciting journey!</p>
+<p>“We have seen the five steps of Bayesian analysis in a fairly realistic example. This book explains how to do this sort of analysis for many different applications and types of descriptive models” (p.&nbsp;30).</p>
 </blockquote>
+<p>That’s it! We can now start digging into the details that make up each of the steps outlined in this introductory chapter. Learning Bayesian inference is a rewarding experience. I wish you the best of luck on this exciting journey!</p>
 </section>
 <section id="session-info" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="session-info"><span class="header-section-number">2.4</span> Session info</h2>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">status</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Status `~/.julia/environments/v1.7/Project.toml`

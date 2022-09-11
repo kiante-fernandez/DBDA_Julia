@@ -1,1 +1,55 @@
 # The Julia programming language
+
+I will do my best to mirror what's in the text. I will touch on many of the same higher-level concepts as the chapter on R does. However, Julia does have some differences. As a result, I sometimes deviate from the text to highlight some of the language's unique features.
+
+## Get the software
+
+Go install Julia on your computer. Go to [https://julialang.org/](https://julialang.org/) and follow the instructions. If you are curious about the history of Julia, go check out [https://julialang.org/blog/2012/02/why-we-created-julia/](https://julialang.org/blog/2012/02/why-we-created-julia/), a blog post by the language developers. I also highly recommend [this](https://youtu.be/RCQK4SuCufo?t=523) as well as [this Youtube video](https://youtu.be/JYs_94znYy0) for a brief explanation of the motivation behind the Julia language. I make also make use of a variety of add-on packages in this project. You can install them all by executing this code block.
+
+```{julia}
+#| eval: false
+#| echo: true
+using Pkg
+
+dependencies = [
+    "Turing",           #https://turing.ml/stable/
+    "AbstractMCMC",     #https://github.com/TuringLang/AbstractMCMC.jl
+    "MCMCChains",       #https://github.com/TuringLang/MCMCChains.jl
+    "DataFrames",       #https://dataframes.juliadata.org/stable/
+    "DataFramesMeta",   #https://juliadata.github.io/DataFramesMeta.jl/stable/
+    "Distributions",    #https://juliastats.org/Distributions.jl/stable/
+    "Gadfly",           #http://gadflyjl.org/stable/
+    "StatsPlots",       #https://github.com/JuliaPlots/StatsPlots.jl
+    "Optim",            #https://julianlsolvers.github.io/Optim.jl/stable/
+    "IJulia",           #https://github.com/JuliaLang/IJulia.jl
+    "Revise"            #https://timholy.github.io/Revise.jl/stable/#Introduction-to-Revise-1
+]
+
+Pkg.add(dependencies)
+```
+
+:::{.callout-warning}
+Sometimes installing dependencies right into your immediate environment can cause a headache later. Instead, consider creating a project for your code from this book. A project is Julia's way of tracking the versions of packages used and is the best practice for managing the range of competing dependencies from the spread of packages. For more information, check out the documentation at [https://pkgdocs.julialang.org/v1/environments/](https://pkgdocs.julialang.org/v1/environments/).
+:::
+
+## A look at VS Code
+
+Visual Studio Code, also commonly referred to as VS Code, is an Integrated development environment (IDE) developed by Microsoft. VS Code has consistently been ranked one of the most popular IDEs. Due to its popularity, the support from the user base has made VS Code an excellent choice for developing in Julia. To get all the features for running Julia within VS Code, check out the documentation: [https://code.visualstudio.com/docs/languages/julia](https://code.visualstudio.com/docs/languages/julia). You are, of course, free to use any IDE you see fit. 
+
+## A simple example of Julia in action
+
+## Basic commands and operators in Julia
+
+## Variable types
+
+## Loading and saving data
+
+## Some utility functions
+
+## Programming in Julia
+
+## Graphical plots: Opening and saving
+
+## ~~Conclusion~~ turing.jl-related needs
+
+Given its central role in this ebook, we need to mention some resources for  `turing.jl`. The main website for turing is the GitHub repository at [https://github.com/TuringLang/Turing.jl](https://github.com/TuringLang/Turing.jl). The official website, [https://turing.ml/stable/](https://turing.ml/stable/) is also handy in that it contains a set of tutorials, vignettes, and other documents to help you get started (though I will note that at the time of writing this, the documentation does not keep speed with the most stable release of the package). You can also [join the Julia slack community](https://join.slack.com/t/julialang/shared_invite/zt-1fv4bedoy-pbL3tzyiFBOD6Ttjr5NUPA) and join the turing channel, which I found tremendously helpful while writing this book. Finally, you can keep an eye on the discussions in the turing section of the Julialang forum, [https://discourse.julialang.org/tag/turing](https://discourse.julialang.org/tag/turing).
