@@ -411,7 +411,7 @@ plot(layer(df, x=:β, Geom.histogram(bincount = 50)),
     layer(plt_HDI, x = :β,xmin="2.5%", xmax="97.5%",Geom.point, Geom.errorbar, color=[colorant"red"],size =[.1], order=1),
     Guide.xlabel("β(slope)"),
     Guide.title("The posterior distribution \n
-    The mode and 95% HPD intervals are\nthe dot and horizontal line at the bottom."),
+    The mode and 95% HDI intervals are\nthe dot and horizontal line at the bottom."),
     Guide.yticks(ticks=[]),
     Theme(
         background_color = "white",
@@ -426,9 +426,47 @@ To make Figure 2.6, we use the `predict()` function. First we create a model obj
 
 ```{julia}
 # extract the posterior draws
-# model_pred = linear_regression(x,Vector{Missing}(missing, length(y)))
-# posterior_check = predict(model_pred, chain_lin_reg)
+model_pred = linear_regression(x,Vector{Missing}(missing, length(y)))
+posterior_check = predict(model_pred, chain_lin_reg)
+
+#get the summary stats for plotting
+posterior_res = summarystats(posterior_check)
+#create DataFrame
+plot_df = DataFrame(quantile(posterior_check))
+plot_df.x = x
+plot_df.y = y
+plot_df.predictions = posterior_res[:,:mean]
+
+#plot
+Gadfly.plot(
+    layer(plot_df, x=:x, y=:y, Geom.point,color = [colorant"black"]),
+    layer(plot_df, x=:x, y=:predictions,ymin="2.5%", ymax="97.5%",Geom.point,Geom.errorbar, color = [colorant"grey"]),Guide.xlabel("Height in inches"),
+    Guide.ylabel("Weight in pounds"),
+    Guide.title("Data with the percentile-based 95% intervals and\nthe means of the posterior predictions"),
+    Theme(
+        background_color = "white",
+        grid_color = "white",
+        line_width = .1mm
+    ))
 ```
+
+The posterior predictions might be easier to depict with a ribbon and line, instead. Luckily `Gadfly.jl` makes it really easy to change. 
+
+```{julia}
+Gadfly.plot(
+    layer(plot_df, x=:x, y=:y, Geom.point,color = [colorant"black"]),
+    layer(plot_df, x=:x, y=:predictions,ymin="2.5%", ymax="97.5%",Geom.line,Geom.ribbon, color = [colorant"red"]),Guide.xlabel("Height in inches"),
+    Guide.ylabel("Weight in pounds"),
+    Guide.title("Data with the percentile-based 95% intervals and\nthe means of the posterior predictions"),
+    Theme(
+        background_color = "white",
+        grid_color = "white",
+        line_width = .2mm
+    ))
+```
+
+> “We have seen the five steps of Bayesian analysis in a fairly realistic example. This book explains how to do this sort of analysis for many different applications and types of descriptive models” (p. 30). 
+That's it! We can now start digging into the details that make up each of the steps outlined in this introductory chapter. Learning Bayesian inference is a rewarding experience. I wish you the best of luck on this exciting journey! 
 
 ## Session info
 ```{julia}
